@@ -1,12 +1,17 @@
 extends ../layout
 
 block content
+  a(href="/users") See all the users
   h1 See all the posts
   a(href="/users/#{user.id}/posts/new") Add a new post
   ul
     each post in posts
-      li= post.title
-      li= post.body
+      li Title - #{post.title}
+      li Content - #{post.body}
+      li Tags
+        ul
+          each tag in post.tags
+            li= tag.name
       a(href="/posts/#{post.id}/comments") See all the comments for this post
       br
       a(href="/users/#{user.id}/posts/#{post.id}/edit") Edit this post

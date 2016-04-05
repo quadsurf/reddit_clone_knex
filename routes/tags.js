@@ -31,6 +31,7 @@ router.get('/:id/edit', (req,res) => {
 });
 
 router.post('/', (req,res) => {
+  // UPDATE POST_TAGS TABLE
   knex('tags').insert(req.body.tag).then(() =>{
     res.redirect('/tags')
   }).catch((err) =>{

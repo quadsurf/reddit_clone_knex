@@ -11,14 +11,11 @@ app.use(morgan("tiny"))
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 
+app.use('/', routes.main);
 app.use('/users', routes.users);
 app.use('/users/:user_id/posts', routes.posts);
 app.use('/posts/:post_id/comments', routes.comments);
 app.use('/tags', routes.tags);
-
-app.get("/", function(req,res){
-  res.redirect("/users");
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
