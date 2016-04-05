@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+  h1 Add a new tag
+  form(action="/tags", method="POST")
+    input(type="text" name="tag[name]")
+    input(type="submit" value="Add this tag")

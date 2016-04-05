@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+  h1 Hey #{user.username} - what are you trying to change?
+  form(action="/users/#{user.id}/posts/#{post.id}?_method=PATCH", method="POST")
+    input(type="text" name="post[title]" value="#{post.title}")
+    input(type="text" name="post[body]" value="#{post.body}")
+    input(type="submit" value="Edit this post")

@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  h1 See all the posts
+  a(href="/users/#{user.id}/posts/new") Add a new post
+  ul
+    each post in posts
+      li= post.title
+      li= post.body
+      a(href="/posts/#{post.id}/comments") See all the comments for this post
+      br
+      a(href="/users/#{user.id}/posts/#{post.id}/edit") Edit this post
+      form(action="/users/#{user.id}/posts/#{post.id}?_method=DELETE" method="POST")
+        input(type="submit" value="X")

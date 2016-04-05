@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  a(href="/users") See all users
+  h1 See all the tags
+  a(href="/tags/new") Add a new tag
+  ul
+    each tag in tags
+      li= tag.name
+      br
+      a(href="/tags/#{tag.id}/edit") Edit this tag
+      form(action="/tags/#{tag.id}?_method=DELETE" method="POST")
+        input(type="submit" value="X")
