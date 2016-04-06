@@ -1,35 +1,31 @@
-## TODO
-
-- finish M2M using bluebird
-- styling
-- show views
-- polymorphic (commentable type and remove id)
-
-###Reddit Clone
+##Reddit Clone
 
 For this assignment you will need to combine your knowledge of express, SQL and Knex to build a Reddit clone where users can create posts and comment on those posts. 
 
-##Requirements
+###Requirements
+
+Your application must at least have full CRUD on the following three resources: 
 
 - Users
 - Posts
-- Tags
 - Comments
 
-##Data Modeling
+Users should be able to write many posts and each post can have multiple comments. How you would like to display this information is up to you
 
-Think about how your data is going to be structured. 
+###Data Modeling
 
-##Styling
+Think about how your data is going to be structured. Diagram your schema and draw the relationships between each one of your tables. What data is going to be inside of these tables? What kind of relationships will exist between these tables?
+
+###Styling
 
 Styling is not a huge component of this project, but feel free to make your site look nice. Add Bootstrap, SemanticUI, or roll your own styling from scratch. 
 
-##Bonuses
+###Bonuses
 
-1. Comments on comments as well as posts (polymorphic association)
-2. Using the Bluebird promise library
+1. Include an additional resource - tags. This should be a many-to-many association with posts. Posts should have multiple tags, and many different tags can be associated with many posts.
+1. A user should be able to not only comment on posts, but comment on other users, tags and even comments!
 
-##Super Bonus
+###Super Bonus
 
-Use the reddit API for additional functionality!
+Use the actual reddit API for additional functionality!
 
