@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  h2 See more about #{tag.name}
+  h5 See what posts are associated with this tag:
+    each post in tag.posts
+      p Title: #{post.title}:  Body #{post.body}
+        br
+        a(href="/users/#{post.user_id}/posts") See this user's posts
+        br
+        a(href="/users/#{post.user_id}/posts/#{post.id}") See more about this post

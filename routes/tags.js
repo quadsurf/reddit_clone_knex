@@ -16,7 +16,12 @@ router.get('/new', (req,res) => {
 
 router.get('/:id', (req,res) => {
   knex('tags').where({id: req.params.id}).first().then((tag) =>{
-    res.render("tags/show", {tag})
+    knex('post_tags').where({tag_id: tag.id}).pluck("post_id").then((ids) => {
+      knex('posts').whereIn("posts.id", ids).then((posts) => {
+        Object.assign(tag, {posts})
+        res.render("tags/show", {tag})
+      })
+    })
   }).catch((err) =>{
     res.render("error", {err})
   });
@@ -31,7 +36,6 @@ router.get('/:id/edit', (req,res) => {
 });
 
 router.post('/', (req,res) => {
-  // UPDATE POST_TAGS TABLE
   knex('tags').insert(req.body.tag).then(() =>{
     res.redirect('/tags')
   }).catch((err) =>{

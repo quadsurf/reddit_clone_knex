@@ -6,6 +6,20 @@ head
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
     title Reddit Clone
 body
+  nav.navbar.navbar-default
+        .container-fluid
+          .navbar-header
+            a.navbar-brand(href='/users') Reddit Clone
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='/')
+                  | Home
+                  span.sr-only (current)
+              li
+                a(href='/tags') See all tags
+          // /.nav-collapse
+        // /.container-fluid
+
   div.container
     block content
     script(src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
