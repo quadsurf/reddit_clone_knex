@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+
+  h1 Hey #{user.username} - what are you writing about?
+  form(action="/users/#{user.id}/posts", method="POST")
+    div
+      input(type="text" name="post[title]")
+    div
+      input(type="text" name="post[body]")
+    each tag in tags
+      input(type="checkbox" name="tags[ids]" value="#{tag.id}")
+      label(for="#{tag.name}")= tag.name
+    div
+      input(type="submit" value="Add this post")

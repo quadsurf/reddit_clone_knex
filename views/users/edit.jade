@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+  h1 Edit a user
+  form(action="/users/#{user.id}?_method=PATCH", method="POST")
+    input(type="text" name="user[username]", value="#{user.username}")
+    input(type="submit" value="Add this user")

@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  h1 Reddit Clone! See all the posts!
+  ul
+    each post in posts
+      li
+        a(href="/users/#{post.user_id}/posts/#{post.post_id}")= post.title
+      ul Comments:
+        each comment in post.comments
+          li= comment.content

@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  h1 Hey #{post.username} - what are you trying to change?
+  form(action="/users/#{post.user_id}/posts/#{post.post_id}?_method=PATCH", method="POST")
+    div
+      input(type="text" name="post[title]" value="#{post.title}")
+    div
+      input(type="text" name="post[body]" value="#{post.body}")
+    div
+      each tag in tags
+        input(type="checkbox" name="tags[ids]" value="#{tag.id}" checked=(tag.isChecked ? "checked" : undefined))
+        label(for="#{tag.name}")= tag.name
+    div
+      input(type="submit" value="Edit this post")
