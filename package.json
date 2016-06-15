@@ -17,13 +17,14 @@
   },
   "homepage": "https://github.com/gSchool/reddit_clone_knex#readme",
   "dependencies": {
-    "body-parser": "^1.15.0",
+    "body-parser": "^1.15.1",
+    "ejs": "^2.4.2",
     "express": "^4.13.4",
     "jade": "^1.11.0",
     "knex": "^0.10.0",
     "locus": "^1.2.0",
-    "method-override": "^2.3.5",
+    "method-override": "^2.3.6",
     "morgan": "^1.7.0",
-    "pg": "^4.5.2"
+    "pg": "^4.5.6"
   }
 }

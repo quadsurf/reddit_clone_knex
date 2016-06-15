@@ -4,7 +4,9 @@ var express = require("express"),
 	morgan = require("morgan"),
 	bodyParser = require("body-parser"),
 	usersRouter = require("./routes/users");
+
 require("locus");
+
 app.set("view engine", "jade");
 app.use(express.static(__dirname + "/public"));
 app.use(morgan("tiny"));
@@ -23,6 +25,6 @@ app.use("/users", usersRouter);
 //   res.render("404");
 // });
 
-app.listen(3000, function(){
-  console.log("Server is listening on port 3000");
+app.listen(3001, function(){
+  console.log("Server is listening on port 3001");
 });
