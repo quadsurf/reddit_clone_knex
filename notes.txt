@@ -1,0 +1,7 @@
+knex('users')
+		.join('posts','users.id', '=', 'posts.user_id')
+		.select('posts.post_content','users.id')
+		.then((results) => {
+			eval(locus);
+		});
+	});

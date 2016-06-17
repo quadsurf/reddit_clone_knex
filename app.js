@@ -3,14 +3,15 @@ var express = require("express"),
 	methodOverride = require("method-override"),
 	morgan = require("morgan"),
 	bodyParser = require("body-parser"),
-	usersRouter = require("./routes/users");
+	Upload = require('upload-file');
 
 require("locus");
 
 app.set("view engine", "jade");
 app.use(express.static(__dirname + "/public"));
 app.use(morgan("tiny"));
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(methodOverride("_method"));
 
 app.get("/", function(req, res){
@@ -18,6 +19,7 @@ app.get("/", function(req, res){
 });
 
 // Routes
+usersRouter = require("./routes/users");
 app.use("/users", usersRouter);
 
 

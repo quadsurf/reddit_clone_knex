@@ -1,0 +1,24 @@
+include ../partials/h1deep
+include ../partials/nav1deep
+#index-banner.section.no-pad-bot
+	.container
+		br
+		br
+		h1.header.center.orange-text #{user.fullname}
+		.row.center
+			.row
+				.col.s12.m12
+					.card
+						.card-image
+							img(src='#{user.imgurl}')
+							span.card-title #{user.username} | Posts: 23
+						.card-content
+							p.truncate The name's #{user.fullname}! #{user.about}
+						.card-action
+							a(href='/users/#{user.id}/posts') View Posts
+							a(href='#') Follow
+							a(href='/users/#{user.id}/edit') Edit
+							form(method='POST', action='/users/#{user.id}?_method=DELETE')
+								button(type='submit')
+									i.small.material-icons(style='cursor:pointer;cursor:hand;') delete
+include ../partials/footer

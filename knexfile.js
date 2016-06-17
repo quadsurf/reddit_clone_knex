@@ -5,7 +5,8 @@ module.exports = {
   development: {
     client: 'pg',
     connection: 'postgres://localhost/db_reddit_v1',
-    debug: true
+    debug: true,
+    useNullAsDefault: true
   },
 
   staging: {

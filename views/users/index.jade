@@ -1,0 +1,27 @@
+include ../partials/header.jade
+include ../partials/nav.jade
+#index-banner.section.no-pad-bot
+	.container
+		br
+		br
+		h1.header.center.orange-text Bloggers
+		.row.center
+			.row
+				each user in users
+					.col.s12.m4
+						.card
+							.card-image
+								a(href='/users/#{user.id}')
+									img(src='#{user.imgurl}')
+								span.card-title #{user.username}
+							.card-content
+								p Posts: 23
+								p.truncate #{user.about}
+							.card-action
+								a(href='/users/#{user.id}/posts') View Posts
+								a(href='#') Follow
+		.row.center
+			a.btn-large.waves-effect.waves-light.blue(href='/users/new') Register
+		br
+		br
+include ../partials/footer.jade
