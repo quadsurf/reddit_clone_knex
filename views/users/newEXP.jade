@@ -6,29 +6,29 @@ include ../partials/nav1deep
 	form.col.s12.m12(method='POST', enctype="multipart/form-data", action='/users')
 		.row
 			.input-field.col.s6.m6
-				input#fullname.validate(type='text', name="fullname", autofocus, required)
+				input#fullname.validate(type='text', name="user[fullname]", autofocus, required)
 				label(for='fullname') Full Name
 			.input-field.col.s6.m6
-				input#email.validate(type="email", name="email", required)
+				input#email.validate(type="email", name="user[email]", required)
 				label(for='email') Email
 		.row
 			.input-field.col.s6.m6
-				input#username.validate(type="text", name="username", required)
+				input#username.validate(type="text", name="user[username]", required)
 				label(for='username') Username
 			.input-field.col.s6.m6
-				input#password.validate(type="password", name="password", required)
+				input#password.validate(type="password", name="user[password]", required)
 				label(for='username') Password			
 		.row
 			.input-field.col.s12.m12
-				textarea#about.validate.materialize-textarea(name="about", required)
+				textarea#about.validate.materialize-textarea(name="user[about]", required)
 				label(for='about') Short Bio
 		.row
 			.input-field.col.s12.m12
-				input#imgurl.validate(type="text", name="imgurl")
+				input#imgurl.validate(type="text", name="user[imgurl]")
 				label(for='imgurl') Photo URL or...
 		.row
 			.input-field.col.s12.m12
-				input#imgfile.validate(type="file", name="imgfile")
+				input#imgfile.validate(type="file", name="user[imgfile]")
 				label(for='imgfile') Upload Photo
 		.row.center
 			.input-field.col.s12.m12

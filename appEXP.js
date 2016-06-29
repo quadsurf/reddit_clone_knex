@@ -1,8 +1,7 @@
 var express = require("express"),
 	app = express(),
 	methodOverride = require("method-override"),
-	morgan = require("morgan"),
-	bodyParser = require("body-parser");
+	morgan = require("morgan");
 
 // var Upload = require('upload-file');
 
@@ -12,8 +11,6 @@ app.set("view engine", "jade");
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/uploads"));
 app.use(morgan("tiny"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
 app.use(methodOverride("_method"));
 
 app.get("/", function(req, res){

@@ -12,7 +12,10 @@ include ../partials/nav.jade
 						.card
 							.card-image
 								a(href='/users/#{user.id}')
-									img(src='#{user.imgurl}')
+									if user.imgfile
+										img(src='#{user.imgfile}')
+									else
+										img(src='#{user.imgurl}')
 								span.card-title #{user.username}
 							.card-content
 								p Posts: 23

@@ -1,6 +1,7 @@
 var express = require('express');
-var router = express.Router({mergeParams:true});
 var knex = require('../db/knex');
+var router = express.Router();
+var multer = require('multer');
 // var models = require("../models/models");
 
 require('locus');
@@ -22,15 +23,18 @@ router.get('/new',function(req,res){
   res.render('users/new');
 });
 
-router.post('/',function(req,res){
+router.post('/', multer({ dest: './uploads/'}).single('imgfile'), function(req,res){
   // get form data
   var user = req.body;
-  // insert data to db
-	// created_at: knex.fn.now()
+	var imgpath = req.file.path;
+  var imgfile = imgpath.split('/')[1];
+  console.log(req.file);
+	// updated_at: knex.fn.now() not working???
   Knex().insert({
     fullname: user.fullname,
     username: user.username,
 		imgurl: user.imgurl,
+		imgfile: imgfile,
 		password: user.password,
 		about: user.about,
 		email: user.email
@@ -38,6 +42,16 @@ router.post('/',function(req,res){
     // redirect to /users
     res.redirect('/users')
   });
+
+  // Knex()
+  //   .insert(req.body.user)
+  //   .returning('id')
+  //   .then(function(id){
+  //     res.redirect(`/users/${id}`)
+  //   })
+  //   .catch(function(err){
+  //     console.log(err);
+  //   });
 });
 
 // READ ONE
